@@ -234,23 +234,23 @@ instance (Eq1 f, GEq1 NonV4 g) => GEq1 NonV4 (f :.: g) where
 
 #if MIN_VERSION_base(4,9,0) || defined(GENERIC_DERIVING)
 -- Unboxed types
-instance GEq1 v UAddr where
-  gliftEq _ (UAddr a1) (UAddr a2) = isTrue# (eqAddr# a1 a2)
+-- instance GEq1 v UAddr where
+--   gliftEq _ (UAddr a1) (UAddr a2) = isTrue# (eqAddr# a1 a2)
 
-instance GEq1 v UChar where
-  gliftEq _ (UChar c1) (UChar c2) = isTrue# (eqChar# c1 c2)
+-- instance GEq1 v UChar where
+--   gliftEq _ (UChar c1) (UChar c2) = isTrue# (eqChar# c1 c2)
 
-instance GEq1 v UDouble where
-  gliftEq _ (UDouble d1) (UDouble d2) = isTrue# (d1 ==## d2)
+-- instance GEq1 v UDouble where
+--   gliftEq _ (UDouble d1) (UDouble d2) = isTrue# (d1 ==## d2)
 
-instance GEq1 v UFloat where
-  gliftEq _ (UFloat f1) (UFloat f2) = isTrue# (eqFloat# f1 f2)
+-- instance GEq1 v UFloat where
+--   gliftEq _ (UFloat f1) (UFloat f2) = isTrue# (eqFloat# f1 f2)
 
-instance GEq1 v UInt where
-  gliftEq _ (UInt i1) (UInt i2) = isTrue# (i1 ==# i2)
+-- instance GEq1 v UInt where
+--   gliftEq _ (UInt i1) (UInt i2) = isTrue# (i1 ==# i2)
 
-instance GEq1 v UWord where
-  gliftEq _ (UWord w1) (UWord w2) = isTrue# (eqWord# w1 w2)
+-- instance GEq1 v UWord where
+--   gliftEq _ (UWord w1) (UWord w2) = isTrue# (eqWord# w1 w2)
 #endif
 
 -------------------------------------------------------------------------------
@@ -339,23 +339,23 @@ instance (Ord1 f, GOrd1 NonV4 g) => GOrd1 NonV4 (f :.: g) where
 
 #if MIN_VERSION_base(4,9,0) || defined(GENERIC_DERIVING)
 -- Unboxed types
-instance GOrd1 v UAddr where
-  gliftCompare _ (UAddr a1) (UAddr a2) = primCompare (eqAddr# a1 a2) (leAddr# a1 a2)
+-- instance GOrd1 v UAddr where
+--   gliftCompare _ (UAddr a1) (UAddr a2) = primCompare (eqAddr# a1 a2) (leAddr# a1 a2)
 
-instance GOrd1 v UChar where
-  gliftCompare _ (UChar c1) (UChar c2) = primCompare (eqChar# c1 c2) (leChar# c1 c2)
+-- instance GOrd1 v UChar where
+--   gliftCompare _ (UChar c1) (UChar c2) = primCompare (eqChar# c1 c2) (leChar# c1 c2)
 
-instance GOrd1 v UDouble where
-  gliftCompare _ (UDouble d1) (UDouble d2) = primCompare (d1 ==## d2) (d1 <=## d2)
+-- instance GOrd1 v UDouble where
+--   gliftCompare _ (UDouble d1) (UDouble d2) = primCompare (d1 ==## d2) (d1 <=## d2)
 
-instance GOrd1 v UFloat where
-  gliftCompare _ (UFloat f1) (UFloat f2) = primCompare (eqFloat# f1 f2) (leFloat# f1 f2)
+-- instance GOrd1 v UFloat where
+--   gliftCompare _ (UFloat f1) (UFloat f2) = primCompare (eqFloat# f1 f2) (leFloat# f1 f2)
 
-instance GOrd1 v UInt where
-  gliftCompare _ (UInt i1) (UInt i2) = primCompare (i1 ==# i2) (i1 <=# i2)
+-- instance GOrd1 v UInt where
+--   gliftCompare _ (UInt i1) (UInt i2) = primCompare (i1 ==# i2) (i1 <=# i2)
 
-instance GOrd1 v UWord where
-  gliftCompare _ (UWord w1) (UWord w2) = primCompare (eqWord# w1 w2) (leWord# w1 w2)
+-- instance GOrd1 v UWord where
+--   gliftCompare _ (UWord w1) (UWord w2) = primCompare (eqWord# w1 w2) (leWord# w1 w2)
 
 # if __GLASGOW_HASKELL__ >= 708
 primCompare :: Int# -> Int# -> Ordering
@@ -758,25 +758,25 @@ instance (Show1 f, GShow1Con NonV4 g) => GShow1Con NonV4 (f :.: g) where
 #endif
 
 #if MIN_VERSION_base(4,9,0) || defined(GENERIC_DERIVING)
-instance GShow1Con v UChar where
-  gliftShowsPrecCon opts _ _ p (UChar c) =
-    showsPrec (hashPrec opts p) (C# c) . oneHash opts
+-- instance GShow1Con v UChar where
+--   gliftShowsPrecCon opts _ _ p (UChar c) =
+--     showsPrec (hashPrec opts p) (C# c) . oneHash opts
 
-instance GShow1Con v UDouble where
-  gliftShowsPrecCon opts _ _ p (UDouble d) =
-    showsPrec (hashPrec opts p) (D# d) . twoHash opts
+-- instance GShow1Con v UDouble where
+--   gliftShowsPrecCon opts _ _ p (UDouble d) =
+--     showsPrec (hashPrec opts p) (D# d) . twoHash opts
 
-instance GShow1Con v UFloat where
-  gliftShowsPrecCon opts _ _ p (UFloat f) =
-    showsPrec (hashPrec opts p) (F# f) . oneHash opts
+-- instance GShow1Con v UFloat where
+--   gliftShowsPrecCon opts _ _ p (UFloat f) =
+--     showsPrec (hashPrec opts p) (F# f) . oneHash opts
 
-instance GShow1Con v UInt where
-  gliftShowsPrecCon opts _ _ p (UInt i) =
-    showsPrec (hashPrec opts p) (I# i) . oneHash opts
+-- instance GShow1Con v UInt where
+--   gliftShowsPrecCon opts _ _ p (UInt i) =
+--     showsPrec (hashPrec opts p) (I# i) . oneHash opts
 
-instance GShow1Con v UWord where
-  gliftShowsPrecCon opts _ _ p (UWord w) =
-    showsPrec (hashPrec opts p) (W# w) . twoHash opts
+-- instance GShow1Con v UWord where
+--   gliftShowsPrecCon opts _ _ p (UWord w) =
+--     showsPrec (hashPrec opts p) (W# w) . twoHash opts
 
 oneHash, twoHash :: Options -> ShowS
 hashPrec         :: Options -> Int -> Int
@@ -853,20 +853,20 @@ instance IsNullary (f :.: g) where
     isNullary _ = False
 
 #if MIN_VERSION_base(4,9,0) || defined(GENERIC_DERIVING)
-instance IsNullary UChar where
-    isNullary _ = False
+-- instance IsNullary UChar where
+--     isNullary _ = False
 
-instance IsNullary UDouble where
-    isNullary _ = False
+-- instance IsNullary UDouble where
+--     isNullary _ = False
 
-instance IsNullary UFloat where
-    isNullary _ = False
+-- instance IsNullary UFloat where
+--     isNullary _ = False
 
-instance IsNullary UInt where
-    isNullary _ = False
+-- instance IsNullary UInt where
+--     isNullary _ = False
 
-instance IsNullary UWord where
-    isNullary _ = False
+-- instance IsNullary UWord where
+--     isNullary _ = False
 
 # if __GLASGOW_HASKELL__ < 708
 isTrue# :: Bool -> Bool
